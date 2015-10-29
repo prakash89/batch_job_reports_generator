@@ -4,7 +4,11 @@ class BatchJobReports
     CSV.generate(headers: batch_job_column_headers, write_headers: true) do |csv|
       task_list = cron_job_info.split("\n").reject(&:empty?)[0..-3]
       modified_tasks = task_list.map do |task|
-        time, name = task.split "/bin/bash -l -c 'RAILS_ENV=production bundle exec rake "
+        # time, name = task.split " /bin/bash -l -c 'cd /Users/prakashsl/Documents/workspace/projects/calvert/vested.org && RAILS_ENV=production bundle exec rake "
+        tast_split1 = task.split " /bin/bash -l -c"
+        tast_split2 = task.split "bundle exec rake "
+        time = tast_split1[0]
+        name = tast_split2[1]
         name.slice!(" --silent'")
         [name, time]
       end
