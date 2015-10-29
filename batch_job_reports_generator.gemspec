@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{batch_job_reports_generator}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
   s.date = %q{2015-10-29}
   s.summary = %q{batch_job_reports_generator is used for getting csv reports for all cron jobs}
   s.description = "recent first"
